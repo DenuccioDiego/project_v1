@@ -7,7 +7,7 @@ public class CompanyDto implements Serializable {
 
     private String description;
     private String name;
-    private Integer id;
+    private Long id;
 
     public String getDescription() {
         return description;
@@ -25,11 +25,11 @@ public class CompanyDto implements Serializable {
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

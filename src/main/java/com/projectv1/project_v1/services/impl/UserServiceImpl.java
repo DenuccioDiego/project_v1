@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.NEVER, readOnly = true)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<UserDto> getAllUserDto() {
 
         List<User> listUser = this.userRepository.findAll();
@@ -34,6 +34,16 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
 
         return listUserDto;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    public UserDto getUserDto(Long id) {
+
+        User user = this.userRepository.findById(id).get();
+        UserDto userDto = UserUtils.fromDVOtoDTO(user, user.getCompany());
+
+        return userDto;
     }
 
 }

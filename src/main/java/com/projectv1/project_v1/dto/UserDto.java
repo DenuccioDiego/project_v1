@@ -12,8 +12,8 @@ public class UserDto implements Serializable {
     private String surname;
     private String password;
     private Company company;
-    private Integer companyId;
-    private Integer id;
+    private Long companyId;
+    private Long id;
 
     /*
      * public UserDto(String name, String surname, String password, Integer
@@ -58,19 +58,19 @@ public class UserDto implements Serializable {
         this.company = company;
     }
 
-    public Integer getCompanyId() {
+    public Long getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Integer companyId) {
+    public void setCompanyId(Long companyId) {
         this.companyId = companyId;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

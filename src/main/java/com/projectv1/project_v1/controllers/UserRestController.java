@@ -7,6 +7,7 @@ import com.projectv1.project_v1.services.UserService;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,12 @@ public class UserRestController {
     public List<UserDto> getAllUsers() {
         List<UserDto> listUsers = userService.getAllUserDto();
         return listUsers;
+    }
+
+    @GetMapping("/{userId}")
+    public UserDto getUserById(@PathVariable("userId") Long id) {
+        UserDto user = userService.getUserDto(id);
+        return user;
     }
 
 }

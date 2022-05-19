@@ -18,7 +18,7 @@ public class Company implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", columnDefinition = "VARCHAR(40)", nullable = false)
     private String name;
@@ -26,11 +26,11 @@ public class Company implements Serializable {
     @Column(name = "description", columnDefinition = "VARCHAR(120)", nullable = false)
     private String description;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,6 +48,11 @@ public class Company implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Company [description=" + description + ", id=" + id + ", name=" + name + "]";
     }
 
 }
