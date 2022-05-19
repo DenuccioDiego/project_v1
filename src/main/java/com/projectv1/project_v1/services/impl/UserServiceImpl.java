@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.projectv1.project_v1.dao.UserRepository;
+import com.projectv1.project_v1.dto.CompanyDto;
 import com.projectv1.project_v1.dto.UserDto;
 import com.projectv1.project_v1.model.entities.User;
 import com.projectv1.project_v1.services.UserService;
+import com.projectv1.project_v1.utils.CompanyUtils;
 import com.projectv1.project_v1.utils.UserUtils;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,6 +46,17 @@ public class UserServiceImpl implements UserService {
         UserDto userDto = UserUtils.fromDVOtoDTO(user, user.getCompany());
 
         return userDto;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public Long saveUserDto(UserDto userDto) {
+
+        CompanyDto companyDto = CompanyUtils.fromDVOtoDTO(userDto.getCompany());
+        User user = UserUtils.fromDTOtoDVO(userDto, companyDto);
+
+        userRepository.save(user);
+        return user.getId();
     }
 
 }

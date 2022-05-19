@@ -16,4 +16,15 @@ public class CompanyUtils {
         return dto;
     }
 
+    public static Company fromDTOtoDVO(CompanyDto companyDto) {
+
+        Company dvo = new Company();
+
+        dvo.setId(companyDto.getId());
+        dvo.setName(companyDto.getName());
+        dvo.setDescription(companyDto.getDescription());
+
+        return dvo;
+    }
+
 }
