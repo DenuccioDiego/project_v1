@@ -16,7 +16,7 @@ public class UserRestController {
 
     private final UserService userService;
 
-    public UserRestController(@Qualifier("pippo") UserService userService) {
+    public UserRestController(@Qualifier("pippoUserService") UserService userService) {
         this.userService = userService;
     }
 

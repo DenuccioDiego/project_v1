@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Qualifier("pippo")
+@Qualifier("pippoUserService")
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class UserServiceImpl implements UserService {
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getAllUserDto() {
 
         List<User> listUser = this.userRepository.findAll();
-        List<UserDto> listUserDto = listUser.stream().map(u -> UserUtils.fromDVOtoDTO(u))
+        List<UserDto> listUserDto = listUser.stream().map(u -> UserUtils.fromDVOtoDTO(u, u.getCompany()))
                 .collect(Collectors.toList());
 
         return listUserDto;

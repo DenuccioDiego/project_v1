@@ -2,6 +2,8 @@ package com.projectv1.project_v1.dto;
 
 import java.io.Serializable;
 
+import com.projectv1.project_v1.model.entities.Company;
+
 public class UserDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -9,7 +11,8 @@ public class UserDto implements Serializable {
     private String name;
     private String surname;
     private String password;
-    private Integer company_id;
+    private Company company;
+    private Integer companyId;
     private Integer id;
 
     /*
@@ -47,12 +50,20 @@ public class UserDto implements Serializable {
         this.password = password;
     }
 
-    public Integer getCompany_id() {
-        return company_id;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompany_id(Integer company_id) {
-        this.company_id = company_id;
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 
     public Integer getId() {
