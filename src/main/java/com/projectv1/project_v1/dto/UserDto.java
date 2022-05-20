@@ -12,7 +12,6 @@ public class UserDto implements Serializable {
     private String surname;
     private String password;
     private Company company;
-    private Long companyId;
     private Long id;
 
     /*
@@ -56,14 +55,6 @@ public class UserDto implements Serializable {
 
     public void setCompany(Company company) {
         this.company = company;
-    }
-
-    public Long getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
     }
 
     public Long getId() {

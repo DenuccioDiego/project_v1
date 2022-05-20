@@ -9,18 +9,11 @@ public class UserUtils {
 
     public static UserDto fromDVOtoDTO(User userDvo, Company companyDvoParam) {
 
-        Company companyDvo = new Company();
-        companyDvo.setId(companyDvoParam.getId());
-        companyDvo.setName(companyDvoParam.getName());
-        companyDvo.setDescription(companyDvoParam.getDescription());
-
         UserDto dto = new UserDto();
         dto.setName(userDvo.getName());
         dto.setSurname(userDvo.getSurname());
         dto.setId(userDvo.getId());
-
-        dto.setCompany(companyDvo);
-        dto.setCompanyId(companyDvo.getId());
+        dto.setCompany(companyDvoParam);
 
         return dto;
     }
