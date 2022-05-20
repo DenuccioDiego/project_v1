@@ -60,6 +60,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto editUserDto(Long id, UserDto userDto) {
+        userRepository.deleteById(id);
+
+        User user = UserUtils.fromDTOtoDVO(userDto, CompanyUtils.fromDVOtoDTO(userDto.getCompany()));
+        userRepository.saveAndFlush(user);
+        return userDto;
+    }
+
+    @Override
     public String deleteUserDto(Long id) {
         userRepository.deleteById(id);
         return "User delete";

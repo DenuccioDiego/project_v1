@@ -30,6 +30,7 @@ public class UserUtils {
         Company company = CompanyUtils.fromDTOtoDVO(companyDtoParam);
 
         User dvo = new User();
+
         dvo.setName(userDto.getName());
         dvo.setSurname(userDto.getSurname());
         dvo.setPassword(userDto.getPassword());
