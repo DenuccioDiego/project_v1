@@ -6,6 +6,7 @@ import com.projectv1.project_v1.dto.UserDto;
 import com.projectv1.project_v1.services.UserService;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,21 +26,22 @@ public class UserRestController {
 
     @GetMapping
     public List<UserDto> getAllUsers() {
-        List<UserDto> listUsers = userService.getAllUserDto();
-        return listUsers;
+        return userService.getAllUserDto();
     }
 
     @GetMapping("/{userId}")
     public UserDto getUserById(@PathVariable("userId") Long id) {
-        UserDto user = userService.getUserDto(id);
-        return user;
+        return userService.getUserDto(id);
     }
 
     @PostMapping
     public Long saveUser(@RequestBody UserDto userDto) {
-        Long userId = userService.saveUserDto(userDto);
+        return userService.saveUserDto(userDto);
+    }
 
-        return userId;
+    @DeleteMapping("/{userId}")
+    public String deleteUser(@PathVariable("userId") Long id) {
+        return userService.deleteUserDto(id);
     }
 
 }

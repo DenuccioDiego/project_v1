@@ -12,4 +12,5 @@ public interface UserService {
 
     Long saveUserDto(UserDto userDto);
 
+    String deleteUserDto(Long id);
 }

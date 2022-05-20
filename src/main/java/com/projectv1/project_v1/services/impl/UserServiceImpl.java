@@ -59,4 +59,10 @@ public class UserServiceImpl implements UserService {
         return user.getId();
     }
 
+    @Override
+    public String deleteUserDto(Long id) {
+        userRepository.deleteById(id);
+        return "User delete";
+    }
+
 }
