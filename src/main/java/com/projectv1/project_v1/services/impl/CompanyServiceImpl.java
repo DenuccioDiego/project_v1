@@ -44,4 +44,13 @@ public class CompanyServiceImpl implements CompanyService {
         return companyDto;
     }
 
+    @Override
+    @Transactional(propagation = Propagation.NEVER, readOnly = true)
+    public CompanyDto getCompanyDtoByNameAndDescription(CompanyDto companyDto) {
+        Company companyDvo = companyRepository.findByNameAndDescription(companyDto.getName(),
+                companyDto.getDescription());
+        CompanyDto resultCompanyDto = CompanyUtils.fromDVOtoDTO(companyDvo);
+        return resultCompanyDto;
+    }
+
 }

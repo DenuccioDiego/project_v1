@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.projectv1.project_v1.dao.UserRepository;
 import com.projectv1.project_v1.dto.CompanyDto;
 import com.projectv1.project_v1.dto.UserDto;
+import com.projectv1.project_v1.dto.UserLogin;
 import com.projectv1.project_v1.model.entities.User;
 import com.projectv1.project_v1.services.UserService;
 import com.projectv1.project_v1.utils.CompanyUtils;
@@ -73,6 +74,12 @@ public class UserServiceImpl implements UserService {
     public String deleteUserDto(Long id) {
         userRepository.deleteById(id);
         return "User delete";
+    }
+
+    @Override
+    public UserDto getUserByNameAndPassword(UserLogin userLogin) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
